@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-critical
+  namespace: critical-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-critical
+  template:
+    metadata:
+      labels:
+        app: nginx-critical
+    spec:
+      containers:
+        - name: nginx-critical
+          image: nginx

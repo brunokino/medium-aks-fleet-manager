@@ -1,0 +1,13 @@
+apiVersion: fleet.azure.com/v1alpha1
+kind: ClusterResourcePlacement
+metadata:
+  name: basic-app
+spec:
+  resourceSelectors:
+    - group: ""
+      version: v1
+      kind: Namespace
+      name: basic-app
+  policy:
+    clusterNames:
+      - aks-member-1

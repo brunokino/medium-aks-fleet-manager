@@ -1,0 +1,21 @@
+apiVersion: fleet.azure.com/v1alpha1
+kind: ClusterResourcePlacement
+metadata:
+  name: critical-app
+spec:
+  resourceSelectors:
+    - group: ""
+      version: v1
+      kind: Namespace
+      name: critical-app
+  policy:
+    affinity:
+      clusterAffinity:
+        clusterSelectorTerms:
+          - labelSelector:
+              matchExpressions:
+              - key: fleet.azure.com/location
+                operator: In
+                values:
+                - westcentralus
+                - eastus
